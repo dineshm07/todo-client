@@ -1,5 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom"; // Import Link for navigation
+import '../css/Login.css'
+
+const API = process.env.REACT_APP_API;
 
 function Login() {
     const [username, setUsername] = useState("");
@@ -12,7 +15,7 @@ function Login() {
             return;
         }
 
-        const res = await fetch("http://localhost:5000/login", {
+        const res = await fetch(`${API}/login`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, password }),
@@ -29,21 +32,28 @@ function Login() {
     };
 
     return (
-        <div>
-            <h2>Login</h2>
+        <div className="login-container">
+            <h2 className="login-h2">Login</h2>
             <input
                 type="text"
+                className="login-input"
                 placeholder="Username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
             />
             <input
                 type="password"
+                className="login-input"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
-            <button onClick={handleLogin}>Login</button>
+            <button className="login-button" onClick={handleLogin}>Login</button>
+
+            {/* Signup prompt with Link */}
+            <div className="login-footer">
+                <p>Don't have an account? <Link to="/" className="login-signup-link">Sign Up here</Link></p>
+            </div>
         </div>
     );
 }

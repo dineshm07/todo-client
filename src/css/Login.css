@@ -1,0 +1,119 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #6e7dff, #5a63ff); /* Gradient background for a modern look */
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Login Container */
+.login-container {
+    max-width: 400px;
+    width: 100%;
+    padding: 40px;
+    background-color: white;
+    border-radius: 12px;  /* Soft rounded corners */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);  /* Deep shadow for better focus */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-container:hover {
+    transform: scale(1.02);  /* Slightly enlarge the container on hover */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);  /* More pronounced shadow */
+}
+
+/* Header */
+.login-h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #5a63ff; /* Soft blue for modernity */
+}
+
+/* Input Fields */
+.login-input {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+.login-input:focus {
+    border-color: #5a63ff;
+    box-shadow: 0 0 8px rgba(90, 99, 255, 0.6); /* Soft glowing effect on focus */
+}
+
+/* Login Button */
+.login-button {
+    background-color: #5a63ff;
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-button:hover {
+    background-color: #3e48d1;  /* Darker blue when hovering */
+    transform: translateY(-3px);  /* Button slightly raises */
+}
+
+.login-button:active {
+    background-color: #2e37a1;  /* Darker blue when clicked */
+    transform: translateY(1px);  /* Button slightly lowers on click */
+}
+
+/* Footer (Signup Link) */
+.login-footer {
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+.login-signup-link {
+    color: #5a63ff;  /* Blue color for the link */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.login-signup-link:hover {
+    color: #3e48d1;  /* Darker blue when hovered */
+}
+
+/* Error Message */
+.login-error {
+    color: #e74c3c;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 30px;
+    }
+}

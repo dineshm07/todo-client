@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate, Link } from "react-router-dom"; // Import Link for navigation
+import '../css/Signup.css'
 
 function Signup() {
     const [username, setUsername] = useState("");
@@ -24,21 +25,28 @@ function Signup() {
     };
 
     return (
-        <div>
-            <h2>Signup</h2>
+        <div className="signup-container">
+            <h2 className="signup-h2">Signup</h2>
             <input
                 type="text"
+                className="signup-input"
                 placeholder="Username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
             />
             <input
                 type="password"
+                className="signup-input"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
-            <button onClick={handleSignup}>Sign Up</button>
+            <button className="signup-button" onClick={handleSignup}>Sign Up</button>
+
+            {/* Login prompt with Link */}
+            <div className="signup-footer">
+                <p>Already have an account? <Link to="/login" className="signup-login-link">Login here</Link></p>
+            </div>
         </div>
     );
 }

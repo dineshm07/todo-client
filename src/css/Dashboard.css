@@ -1,0 +1,138 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    min-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Header */
+.dashboard-h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Input Field */
+.dashboard-input {
+    width: 80%;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.dashboard-input:focus {
+    border-color: #007BFF;
+}
+
+/* Add Button */
+.dashboard-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.dashboard-button:hover {
+    background-color: #0056b3;
+}
+
+/* Todo List */
+.dashboard-ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+/* Todo Item */
+.dashboard-li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fafafa;
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.dashboard-li:hover {
+    background-color: #f1f1f1;
+}
+
+/* Checkbox */
+.dashboard-checkbox {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+}
+
+/* Delete Button */
+.dashboard-delete-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.dashboard-delete-button:hover {
+    background-color: #c0392b;
+}
+
+.dashboard-delete-button:focus {
+    outline: none;
+}
+
+/* Completed Task Style */
+.dashboard-li.completed {
+    text-decoration: line-through;
+    color: #bbb;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 15px;
+    }
+
+    .dashboard-input {
+        width: 100%;
+    }
+
+    .dashboard-button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}

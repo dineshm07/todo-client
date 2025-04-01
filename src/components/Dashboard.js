@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import '../css/Dashboard.css'
 
 function Dashboard() {
     const { username } = useParams();
@@ -51,25 +52,36 @@ function Dashboard() {
     };
 
     return (
-        <div>
-            <h2>Welcome, {username}</h2>
+        <div className="dashboard-container">
+            <h2 className="dashboard-h2">Welcome, {username}</h2>
             <input
                 type="text"
+                className="dashboard-input"
                 placeholder="New Task"
                 value={task}
                 onChange={(e) => setTask(e.target.value)}
             />
-            <button onClick={addTodo}>Add</button>
-            <ul>
+            <button className="dashboard-button" onClick={addTodo}>Add</button>
+            <ul className="dashboard-ul">
                 {todos.map((todo) => (
-                    <li key={todo.id} style={{ textDecoration: todo.completed ? "line-through" : "none" }}>
+                    <li
+                        key={todo.id}
+                        className={`dashboard-li ${todo.completed ? 'completed' : ''}`}
+                        style={{ textDecoration: todo.completed ? "line-through" : "none" }}
+                    >
                         <input
                             type="checkbox"
+                            className="dashboard-checkbox"
                             checked={todo.completed}
                             onChange={() => toggleTodo(todo.id)}
                         />
                         {todo.task}
-                        <button onClick={() => deleteTodo(todo.id)}>❌</button>
+                        <button
+                            className="dashboard-delete-button"
+                            onClick={() => deleteTodo(todo.id)}
+                        >
+                            ❌
+                        </button>
                     </li>
                 ))}
             </ul>
