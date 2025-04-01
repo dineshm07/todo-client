@@ -2,13 +2,15 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom"; // Import Link for navigation
 import '../css/Signup.css'
 
+const API = process.env.REACT_APP_API;
+
 function Signup() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate(); // Initialize navigation
 
     const handleSignup = async () => {
-        const res = await fetch("http://localhost:5000/signup", {
+        const res = await fetch(`${API}/signup`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, password }),

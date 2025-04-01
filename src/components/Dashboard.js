@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import '../css/Dashboard.css'
 
+const API = process.env.REACT_APP_API;
+
 function Dashboard() {
     const { username } = useParams();
     const [todos, setTodos] = useState([]);
@@ -9,7 +11,7 @@ function Dashboard() {
 
     // Fetch user's todos on load
     useEffect(() => {
-        fetch(`http://localhost:5000/todos/${username}`)
+        fetch(`${API}/todos/${username}`)
             .then(res => res.json())
             .then(data => setTodos(data));
     }, [username]);
@@ -18,7 +20,7 @@ function Dashboard() {
     const addTodo = async () => {
         if (!task.trim()) return;
 
-        const res = await fetch(`http://localhost:5000/todos/${username}`, {
+        const res = await fetch(`${API}/todos/${username}`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ task }),
@@ -33,7 +35,7 @@ function Dashboard() {
 
     // Toggle completion status
     const toggleTodo = async (id) => {
-        await fetch(`http://localhost:5000/todos/${username}/${id}`, {
+        await fetch(`${API}/todos/${username}/${id}`, {
             method: "PUT",
         });
 
@@ -44,7 +46,7 @@ function Dashboard() {
 
     // Delete todo
     const deleteTodo = async (id) => {
-        await fetch(`http://localhost:5000/todos/${username}/${id}`, {
+        await fetch(`${API}/todos/${username}/${id}`, {
             method: "DELETE",
         });
 
