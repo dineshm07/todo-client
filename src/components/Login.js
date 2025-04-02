@@ -1,45 +1,42 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom"; // Import Link for navigation
 import '../css/Login.css'
+import axios from 'axios'
 
 const API = process.env.REACT_APP_API;
 
 function Login() {
-    const [username, setUsername] = useState("");
+    const [useremail, setUserEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
-    const handleLogin = async () => {
-        if (!username.trim() || !password.trim()) {
-            alert("Please enter both username and password.");
+    const handleLogin = () => {
+        if (!useremail.trim() || !password.trim()) {
+            alert("Please enter both useremail and password.");
             return;
         }
 
-        const res = await fetch(`${API}/login`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ username, password }),
-        });
+        axios.post(`${API}/login`, { useremail, password })
+        .then((res) => {
+            const data = res.data;
 
-        const data = await res.json();
-        
-        if (res.ok) {
-            localStorage.setItem("username", username); // Store username for session persistence
-            navigate(`/dashboard/${username}`); // Redirect to user's dashboard
-        } else {
-            alert(data.error || "Login failed. Please try again.");
-        }
+            localStorage.setItem("useremail", data.useremail);
+            navigate(`/dashboard/${data.username}`); 
+        })
+        .catch((error) => {
+            alert(error.response?.data?.error || "Login failed. Please try again.");
+        });
     };
 
     return (
         <div className="login-container">
             <h2 className="login-h2">Login</h2>
             <input
-                type="text"
+                type="email"
                 className="login-input"
-                placeholder="Username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                placeholder="useremail"
+                value={useremail}
+                onChange={(e) => setUserEmail(e.target.value)}
             />
             <input
                 type="password"
