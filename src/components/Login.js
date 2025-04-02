@@ -49,7 +49,7 @@ function Login() {
 
             {/* Signup prompt with Link */}
             <div className="login-footer">
-                <p>Don't have an account? <Link to="/" className="login-signup-link">Sign Up here</Link></p>
+                <p>Don't have an account? <Link to="/signup" className="login-signup-link">Sign Up here</Link></p>
             </div>
         </div>
     );

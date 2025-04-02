@@ -25,20 +25,6 @@ function Signup() {
             .catch((err) => {
                 alert(err.response?.data?.error || 'Signup Failed Due to Server Down')
             });
-            // const res = await fetch(`${API}/signup`, {
-            //     method: "POST",
-            //     headers: { "Content-Type": "application/json" },
-            //     body: JSON.stringify({ username, useremail, password }),
-            // });        
-
-            // const data = await res.json();
-            
-            // if (res.ok) {
-            //     alert(data.message);
-            //     navigate("/login"); // Navigate to login page
-            // } else {
-            //     alert(data.error);
-            // }
         }
         else{
             alert('Check Password')
@@ -81,7 +67,7 @@ function Signup() {
 
             {/* Login prompt with Link */}
             <div className="signup-footer">
-                <p>Already have an account? <Link to="/login" className="signup-login-link">Login here</Link></p>
+                <p>Already have an account? <Link to="/" className="signup-login-link">Login here</Link></p>
             </div>
         </div>
     );
