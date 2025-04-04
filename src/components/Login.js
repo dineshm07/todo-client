@@ -29,27 +29,29 @@ function Login() {
     };
 
     return (
-        <div className="login-container">
-            <h2 className="login-h2">Login</h2>
-            <input
-                type="email"
-                className="login-input"
-                placeholder="useremail"
-                value={useremail}
-                onChange={(e) => setUserEmail(e.target.value)}
-            />
-            <input
-                type="password"
-                className="login-input"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-            <button className="login-button" onClick={handleLogin}>Login</button>
+        <div className="login-body">
+            <div className="login-container">
+                <h2 className="login-h2">Login</h2>
+                <input
+                    type="email"
+                    className="login-input"
+                    placeholder="useremail"
+                    value={useremail}
+                    onChange={(e) => setUserEmail(e.target.value)}
+                />
+                <input
+                    type="password"
+                    className="login-input"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <button className="login-button" onClick={handleLogin}>Login</button>
 
-            {/* Signup prompt with Link */}
-            <div className="login-footer">
-                <p>Don't have an account? <Link to="/signup" className="login-signup-link">Sign Up here</Link></p>
+                {/* Signup prompt with Link */}
+                <div className="login-footer">
+                    <p>Don't have an account? <Link to="/signup" className="login-signup-link">Sign Up here</Link></p>
+                </div>
             </div>
         </div>
     );

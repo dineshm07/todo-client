@@ -6,7 +6,7 @@
 }
 
 /* Body Styling */
-body {
+.signup-body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #6e7dff, #5a63ff); /* Gradient background for a modern look */
     color: #333;

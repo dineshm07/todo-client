@@ -1,0 +1,122 @@
+.activities-container {
+    min-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Header */
+.activities-h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Input Field */
+.activities-input {
+    width: 80%;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.activities-input:focus {
+    border-color: #007BFF;
+}
+
+/* Add Button */
+.activities-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.activities-button:hover {
+    background-color: #0056b3;
+}
+
+/* Activities List */
+.activities-ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+/* Activities Item */
+.activities-li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fafafa;
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.activities-li:hover {
+    background-color: #f1f1f1;
+}
+
+/* Checkbox */
+.activities-checkbox {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+}
+
+/* Delete Button */
+.activities-delete-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.activities-delete-button:hover {
+    background-color: #c0392b;
+}
+
+.activities-delete-button:focus {
+    outline: none;
+}
+
+/* Completed Task Style */
+.activities-li.completed {
+    text-decoration: line-through;
+    color: #bbb;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .activities-container {
+        padding: 15px;
+    }
+
+    .activities-input {
+        width: 100%;
+    }
+
+    .activities-button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}

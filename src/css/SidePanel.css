@@ -1,0 +1,74 @@
+/* Static Side Panel Styling */
+.side-panel-container {
+    width: 250px;
+    height: 100vh;
+    background-color: #222;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Profile Section */
+.side-panel-profile {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.side-panel-profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.side-panel-profile-name {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* Navigation List */
+.side-panel-list {
+    list-style: none;
+    padding: 0;
+}
+
+.side-panel-list li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.side-panel-list li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.side-panel-list li:hover {
+    background-color: #444;
+}
+
+/* Progress Bar */
+.side-panel-progress-bar {
+    width: 100%;
+    background-color: #555;
+    height: 5px;
+    margin-top: 5px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.side-panel-progress {
+    height: 5px;
+    background-color: limegreen;
+    width: 60%;
+}
+
+/* Logout Button */
+.side-panel-logout {
+    color: red;
+    font-weight: bold;
+}
+
+.side-panel-logout:hover {
+    color: darkred;
+}
