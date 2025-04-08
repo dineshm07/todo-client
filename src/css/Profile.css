@@ -7,3 +7,68 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
 } 
+
+.profile-loading,
+.profile-error {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.profile-error {
+  color: red;
+}
+
+.profile-details {
+  list-style: none;
+  padding: 0;
+}
+
+.profile-item {
+  margin-bottom: 12px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.profile-key {
+  color: #444;
+  text-transform: capitalize;
+}
+
+.profile-array {
+  padding-left: 1rem;
+  margin-top: 0.3rem;
+}
+
+.profile-container {
+    padding: 2rem;
+    font-family: sans-serif;
+  }
+  
+  .profile-photo-upload {
+    cursor: pointer;
+    display: inline-block;
+    background: #eee;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-details {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .profile-item {
+    margin-bottom: 0.75rem;
+  }
+  
+  .profile-key {
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+  
+  .profile-array {
+    padding-left: 1rem;
+  }
+  

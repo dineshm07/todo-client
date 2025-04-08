@@ -13,10 +13,10 @@ function App() {
             <Routes>
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/" element={<Login />} />
-                <Route path="/dashboard/:username" element={<Dashboard component={<Welcome />}/>} />
+                <Route path="/dashboard/:username" element={<Dashboard component={Welcome}/>} />
                 <Route path="/dashboard/:username/activities" element={<Dashboard component={Activities}/>} />
-                <Route path="/dashboard/:username/profile" element={<Dashboard component={<Profile />}/>} />
-                <Route path="/dashboard/:username/help" element={<Dashboard component={<Help />}/>} />
+                <Route path="/dashboard/:username/profile" element={<Dashboard component={Profile}/>} />
+                <Route path="/dashboard/:username/help" element={<Dashboard component={Help}/>} />
             </Routes>
         </Router>
     );
