@@ -1,9 +1,65 @@
 .welcome-container {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
     text-align: center;
-} 
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .welcome-glow {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle, #8ec5fc 0%, #e0c3fc 100%);
+    opacity: 0.5;
+    z-index: 0;
+    animation: rotateGlow 10s linear infinite;
+  }
+  
+  @keyframes rotateGlow {
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(360deg);}
+  }
+  
+  .welcome-header {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .welcome-title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  
+  .username-text {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #3f51b5;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+  
+  .welcome-description {
+    position: relative;
+    z-index: 1;
+    font-size: 1.1rem;
+    color: #444;
+    margin-top: 1.5rem;
+    line-height: 1.6;
+    padding: 0 1rem;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  

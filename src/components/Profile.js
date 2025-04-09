@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import '../css/Profile.css';
 import axios from 'axios';
+import profileImg from '../assets/585e2f1c1364116ce58fc610e4726336.jpg';
 import { useParams } from 'react-router-dom';
 
 const API = process.env.REACT_APP_API;
 
-function Profile({setPic}) {
+function Profile({ pic, setPic }) {
   const { username } = useParams();
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -27,44 +28,35 @@ function Profile({setPic}) {
     fetchProfile();
   }, [username]);
 
-  const renderValue = (value) => {
-    if (value === null || value === undefined) return 'N/A';
-    if (typeof value === 'boolean') return value ? 'Yes ✅' : 'No ❌';
-    if (Array.isArray(value)) return (
-      <ul className="profile-array">
-        {value.map((item, index) => (
-          <li key={index}>
-            {typeof item === 'object'
-              ? JSON.stringify(item, null, 2)
-              : item.toString()}
-          </li>
-        ))}
-      </ul>
-    );
-    if (typeof value === 'object') return <pre>{JSON.stringify(value, null, 2)}</pre>;
-    return value.toString();
-  };
-  const handleUpload = (e) => {
+  const handleUpload = async (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
     reader.onloadend = () => {
       const base64 = reader.result;
-      axios.post(`${API}/upload/${username}`, { 'file': base64 })
-      .then((photo)=>{
-          setPic(photo)
-      })
-      .catch((err)=>{
-          alert(err)
-      })
-      }
-      
+      axios.post(`${API}/upload/${username}`, { file: base64 })
+        .then((res) => {
+          setPic(res.data.profile_pic);
+        })
+        .catch(() => {});
+    };
     reader.readAsDataURL(file);
   };
+
+  
+
   return (
     <div className="profile-container">
+      <div className="profile-img-container">
+        <img
+          src={pic || profileImg}
+          alt="Profile"
+          className="profile-img"
+        />
+      </div>
+
       <label className="profile-photo-upload">
         👤 Upload Profile Pic
-        <input type="file" hidden onChange= {handleUpload} />
+        <input type="file" hidden onChange={handleUpload} />
       </label>
 
       {loading ? (
@@ -73,12 +65,22 @@ function Profile({setPic}) {
         <p className="profile-error">{error}</p>
       ) : (
         <ul className="profile-details">
-          {Object.entries(user).map(([key, value]) => (
-            <li key={key} className="profile-item">
-              <strong className="profile-key">{key}:</strong> {renderValue(value)}
-            </li>
-          ))}
+          <li className="profile-item">
+            <span className="profile-key">Name:</span> {user.username || 'N/A'}
+          </li>
+          <li className="profile-item">
+            <span className="profile-key">Email:</span> {user.useremail || 'N/A'}
+          </li>
+          <li className="profile-item">
+            <span className="profile-key">Todos:</span> {user.todos.length}
+          </li>
         </ul>
+      )}
+
+      {user.useremail && (
+        <a href={`mailto:${user.useremail}`} className="email-link">
+          📧 Contact via Email
+        </a>
       )}
     </div>
   );

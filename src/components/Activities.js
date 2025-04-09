@@ -4,9 +4,10 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import '../css/Activities.css'
 
+
 const API = process.env.REACT_APP_API;
 
-const Activities = ({ todos, setTodos }) => {
+const Activities = ({ todos, setTodos}) => {
     const { username } = useParams();
     const [task, setTask] = useState("");
 

@@ -2,8 +2,10 @@ import { Link } from "react-router-dom"; // Import Link from React Router
 import "../css/SidePanel.css";
 import profileImg from '../assets/585e2f1c1364116ce58fc610e4726336.jpg'
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import { useEffect } from "react";
+import axios from "axios";
+// import axios from "axios";
+// import { useEffect } from "react";
 
 const API = process.env.REACT_APP_API;
 
@@ -11,12 +13,19 @@ const API = process.env.REACT_APP_API;
 function SidePanel({ progress , pic}) {
   const { username } = useParams();
   
+  // useEffect(() => {
+  //  axios.get(`${API}/upload/${username}`)
+  //  .then((res)=>{setPic(res.data.profile_pic)})
+  //  .catch((err)=>{})
+  // }, [setPic, pic, username])
+
   return (
     <div className="side-panel-container">
       {/* Profile Section */}
        <div className="side-panel-profile">
+        {/* <h2>"{pic}"</h2> */}
         <img
-          src={pic.data || profileImg} // fallback if no photo
+          src={pic || profileImg} // fallback if no photo
           alt="Profile"
           className="side-panel-profile-img"
         />
